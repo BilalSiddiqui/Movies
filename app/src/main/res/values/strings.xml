@@ -2,6 +2,9 @@
     <string name="app_name">Movies</string>
     <string name="action_settings">Settings</string>
     <string name="no_record">Movies not available</string>
+    <string name="wrong_type">Wrong type</string>
+    <string name="not_found_in_search">No record found in search</string>
+    <string name="enter_name_in_search">Please enter movie name in search</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
 package com.swvl.movies.ui.list
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.swvl.movies.R
@@ -12,15 +13,15 @@ import kotlinx.coroutines.withContext
 
 class MovieListViewModel(private val repository: MovieDataSource) : ViewModel() {
     val adapter = MovieAdapter()
-    var errorMessage:String?=null
+    var errorMessageLiveData= MutableLiveData<String>()
 
     fun fetchMovies() {
         viewModelScope.launch(Dispatchers.IO) {
             val moviesListResponse = repository.getMoviesList(MovieApplication.instance)
             if(moviesListResponse.movies.isNullOrEmpty()){
-                errorMessage=MovieApplication.instance.getString(R.string.no_record)
+                errorMessageLiveData.postValue(MovieApplication.instance.getString(R.string.no_record))
             }else {
-                errorMessage= null
+                errorMessageLiveData.postValue(null)
                 withContext(Dispatchers.Main) {
                     adapter.submitList(moviesListResponse.movies)
                 }

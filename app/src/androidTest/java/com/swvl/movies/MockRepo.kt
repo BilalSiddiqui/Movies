@@ -1,4 +1,4 @@
-package com.swvl.movies.list
+package com.swvl.movies
 
 import android.content.Context
 import com.swvl.movies.data.model.Movie
