@@ -5,15 +5,31 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.swvl.movies.R
+import com.swvl.movies.databinding.ActivityListMovieBinding
 import com.swvl.movies.ui.find.SearchActivity
+import com.swvl.movies.utils.Injection
 
 class MovieListActivity : AppCompatActivity() {
+    private var movieListViewModel: MovieListViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_movie)
+        val binding: ActivityListMovieBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_list_movie)
+
+        // Specify the current activity as the lifecycle owner.
+        binding.lifecycleOwner = this
+        movieListViewModel = ViewModelProvider(
+            this,
+            Injection.provideViewModelFactory()
+        ).get(MovieListViewModel::class.java)
+        binding.movieListViewModel = movieListViewModel
+        movieListViewModel?.fetchMovies()
         setSupportActionBar(findViewById(R.id.toolbar))
+
 
     }
 

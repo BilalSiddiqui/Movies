@@ -45,4 +45,5 @@ ext {
     rulesVersion = '1.0.1'
     junitVersion = '4.13'
     espressoVersion = '3.3.0-rc01'
+    mockitoVersion = '2.8.9'
 }
