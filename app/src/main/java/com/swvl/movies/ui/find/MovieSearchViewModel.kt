@@ -9,13 +9,16 @@ import com.swvl.movies.data.model.Movie
 import com.swvl.movies.data.model.MovieListResponse
 import com.swvl.movies.data.repo.MovieDataSource
 import com.swvl.movies.utils.MovieApplication
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class MovieSearchViewModel(private val repository: MovieDataSource) : ViewModel() {
+    //For debouncing search
+    var queryTextChangedJob: Job? = null
+    val DEBOUNCING_TIME:Long=500
+
     val adapter = MovieSearchAdapter()
     var errorMessageLiveData= MutableLiveData<String>()
+
 
     val queryTextListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextChange(newText: String): Boolean {
@@ -30,7 +33,9 @@ class MovieSearchViewModel(private val repository: MovieDataSource) : ViewModel(
 
     fun fetchMovies(query: String) {
         if (query.isNotEmpty()) {
-            viewModelScope.launch(Dispatchers.IO) {
+            queryTextChangedJob?.cancel()
+            queryTextChangedJob =  viewModelScope.launch(Dispatchers.IO) {
+                delay(DEBOUNCING_TIME)
                 val moviesListResponse = repository.getMoviesList(MovieApplication.instance)
                 withContext(Dispatchers.Main) {
                     updateViewWithList(moviesListResponse, query)
