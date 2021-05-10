@@ -3,3 +3,6 @@ This is an android native project of movies list. Provided features of searching
 
 # Configuration
 There is no extra configuration is required. Just clone and run in android studio.
+
+# APK
+https://drive.google.com/file/d/1wc8BMsqt55E3nwShgKkzunPQCRxMEMrI/view?usp=sharing
