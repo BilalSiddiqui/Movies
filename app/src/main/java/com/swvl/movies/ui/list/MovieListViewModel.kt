@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.swvl.movies.R
 import com.swvl.movies.data.repo.MovieDataSource
-import com.swvl.movies.data.repo.MovieRepository
 import com.swvl.movies.utils.MovieApplication
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -4,7 +4,6 @@ import android.util.Log
 import com.swvl.movies.data.api.FlickrService
 import com.swvl.movies.data.model.APIResponse
 import com.swvl.movies.data.model.FlickrSearchResponse
-import com.swvl.movies.data.model.Photo
 import retrofit2.HttpException
 import java.io.IOException
 
