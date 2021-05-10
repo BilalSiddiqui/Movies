@@ -79,4 +79,5 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$runnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

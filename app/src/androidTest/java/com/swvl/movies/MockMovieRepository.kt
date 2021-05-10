@@ -5,7 +5,7 @@ import com.swvl.movies.data.model.Movie
 import com.swvl.movies.data.model.MovieListResponse
 import com.swvl.movies.data.repo.MovieDataSource
 
-class MockRepo:MovieDataSource {
+class MockMovieRepository:MovieDataSource {
 
     var listOfMovies= emptyList<Movie>();
 

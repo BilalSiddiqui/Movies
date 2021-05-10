@@ -1,11 +1,13 @@
 package com.swvl.movies.ui.find
 
+import com.swvl.movies.data.model.Movie
+
 sealed class RecyclerItem {
     abstract fun getTitle(): String
 
-    data class Movie(val name: String,val rating:Int) : RecyclerItem() {
+    data class MoviePresentationModel(val movie: Movie) : RecyclerItem() {
         override fun getTitle(): String {
-            return name
+            return movie.title
         }
     }
 

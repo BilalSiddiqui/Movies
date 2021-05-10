@@ -3,15 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
             name="movie"
-            type="com.swvl.movies.ui.find.RecyclerItem.Movie" />
+            type="com.swvl.movies.ui.find.RecyclerItem.MoviePresentationModel" />
+        <variable
+            name="listener"
+            type="com.swvl.movies.ui.find.MovieItemClickListener" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> listener.onMovieItemClicked(movie,view)}">
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +38,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             style="@style/Widget.AppCompat.RatingBar.Small"
-            android:rating="@{movie.rating}"
+            android:rating="@{movie.movie.rating}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

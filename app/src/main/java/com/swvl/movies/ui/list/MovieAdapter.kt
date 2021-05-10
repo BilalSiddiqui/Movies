@@ -1,12 +1,10 @@
 package com.swvl.movies.ui.list
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.swvl.movies.data.model.Movie
-import com.swvl.movies.databinding.ItemMovieBinding
 
 class MovieAdapter : ListAdapter<Movie, RecyclerView.ViewHolder>(MOVIE_COMPARATOR) {
 

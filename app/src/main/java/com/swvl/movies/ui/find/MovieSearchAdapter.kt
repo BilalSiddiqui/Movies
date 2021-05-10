@@ -5,14 +5,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.swvl.movies.ui.list.ErrorViewHolder
-import com.swvl.movies.ui.list.MovieViewHolder
 
 class MovieSearchAdapter : ListAdapter<RecyclerItem, RecyclerView.ViewHolder>(MOVIE_COMPARATOR) {
     private val TYPE_SECTION = 0
     private val TYPE_MOVIE = 1
 
     override fun getItemViewType(position: Int) = when(getItem(position)) {
-        is RecyclerItem.Movie -> TYPE_MOVIE
+        is RecyclerItem.MoviePresentationModel -> TYPE_MOVIE
         is RecyclerItem.Section -> TYPE_SECTION
     }
 
@@ -26,7 +25,7 @@ class MovieSearchAdapter : ListAdapter<RecyclerItem, RecyclerView.ViewHolder>(MO
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(val item=getItem(position)) {
-            is RecyclerItem.Movie -> (holder as SearchMovieViewHolder).bind(item)
+            is RecyclerItem.MoviePresentationModel -> (holder as SearchMovieViewHolder).bind(item)
             is RecyclerItem.Section -> (holder as SeachSectionViewHolder).bind(item)
         }
     }

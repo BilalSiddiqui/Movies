@@ -5,6 +5,9 @@
     <string name="wrong_type">Wrong type</string>
     <string name="not_found_in_search">No record found in search</string>
     <string name="enter_name_in_search">Please enter movie name in search</string>
+    <string name="cast">Cast: </string>
+    <string name="genere">Genere: </string>
+    <string name="no_image_found">No Images found</string>
 
 
 </resources>

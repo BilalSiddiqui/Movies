@@ -95,7 +95,7 @@ class MovieSearchViewModel(private val repository: MovieDataSource) : ViewModel(
                 presentalbeList.add(RecyclerItem.Section(year.toString()))
                 val toIndex = if (groupedMovies[year]?.size!! > 5) 5 else groupedMovies[year]!!.size
                 presentalbeList.addAll(groupedMovies[year]!!.sortedByDescending { it.rating }
-                    .subList(0, toIndex).map { RecyclerItem.Movie(it.title,it.rating) })
+                    .subList(0, toIndex).map { RecyclerItem.MoviePresentationModel(it) })
             }
         }
         return presentalbeList

@@ -24,7 +24,7 @@ class MovieListActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         movieListViewModel = ViewModelProvider(
             this,
-            Injection.provideViewModelFactory()
+            Injection.provideMoviesViewModelFactory()
         ).get(MovieListViewModel::class.java)
         binding.movieListViewModel = movieListViewModel
         movieListViewModel?.fetchMovies()

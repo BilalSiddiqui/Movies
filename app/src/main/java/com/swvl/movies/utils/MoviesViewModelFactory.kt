@@ -3,13 +3,12 @@ package com.swvl.movies.utils
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.swvl.movies.data.repo.MovieDataSource
+import com.swvl.movies.ui.detail.MovieDetailViewModel
 import com.swvl.movies.ui.find.MovieSearchViewModel
 import com.swvl.movies.ui.list.MovieListViewModel
 
 
-class ViewModelFactory(
-    private val moviesRepository: MovieDataSource
-) : ViewModelProvider.NewInstanceFactory() {
+class MoviesViewModelFactory(private val moviesRepository: MovieDataSource) : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>) =
         with(modelClass) {

@@ -1,16 +1,15 @@
 package com.swvl.movies.search
 
-import com.swvl.movies.MockRepo
+import com.swvl.movies.MockMovieRepository
 import com.swvl.movies.data.model.Movie
 import com.swvl.movies.data.model.MovieListResponse
 import com.swvl.movies.ui.find.MovieSearchViewModel
-import com.swvl.movies.ui.list.MovieListViewModel
 import org.junit.Assert
 import org.junit.Test
 
 class MovieSearchViewModelTest {
 
-    private var reposRepository = MockRepo()
+    private var reposRepository = MockMovieRepository()
 
 
     @Test

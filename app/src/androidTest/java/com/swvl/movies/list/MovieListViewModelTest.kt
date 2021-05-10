@@ -1,6 +1,6 @@
 package com.swvl.movies.list
 
-import com.swvl.movies.MockRepo
+import com.swvl.movies.MockMovieRepository
 import com.swvl.movies.data.model.Movie
 import com.swvl.movies.ui.list.MovieListViewModel
 import org.junit.Assert
@@ -8,7 +8,7 @@ import org.junit.Test
 
 class MovieListViewModelTest {
 
-    private var reposRepository = MockRepo()
+    private var reposRepository = MockMovieRepository()
 
 
     @Test
